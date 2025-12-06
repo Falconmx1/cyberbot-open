@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - rasa
+      - botpress
+  rasa:
+    image: rasa/rasa:latest
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./rasa:/app
+  botpress:
+    image: botpress/server:latest
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./botpress:/botpress
