@@ -16,5 +16,6 @@ rasa/models/
 *.pid
 *.lock
 *.db
+
 # Otros archivos temporales
 .DS_Store
